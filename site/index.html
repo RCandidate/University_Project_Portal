@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Портал проектов СочиГУ — пять цифровых платформ университета</title>
+<meta name="description" content="Портал цифровых проектов Сочинского государственного университета: конкурс студенческих проектов, летняя школа «Вместе в Сочи», платформа финансовой грамотности, конкурс «Цифровые инженеры» и проекты по архитектуре и дизайну.">
+<meta name="theme-color" content="#03060f">
+<link rel="canonical" href="https://project-portal.drach.pro/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Портал проектов СочиГУ">
+<meta property="og:description" content="Пять цифровых платформ университета: конкурсы, летняя школа, олимпиады, инженерные соревнования и архитектурные смотры.">
+<meta property="og:url" content="https://project-portal.drach.pro/">
+<meta property="og:image" content="https://project-portal.drach.pro/assets/img/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-300-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-300-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<span class="anchor-top" id="top" aria-hidden="true"></span>
+
+<!-- ============ LOADER ============ -->
+<div class="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__mark" src="assets/img/emblem.png" alt="">
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__word">Портал проектов</div>
+  </div>
+</div>
+
+<!-- ============ BACKGROUND ============ -->
+<div class="bg">
+  <canvas class="bg__canvas" id="aurora" aria-hidden="true"></canvas>
+  <div class="bg__fallback" aria-hidden="true"></div>
+  <div class="bg__vignette" aria-hidden="true"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+<!-- ============ PROGRESS / RAIL ============ -->
+<div class="progress" aria-hidden="true"><i></i></div>
+<nav class="rail" aria-label="Навигация по разделам">
+  <a href="#top" class="rail__item is-active" data-rail="0"><span class="rail__num">00</span><span class="rail__label">Начало</span></a>
+  <a href="#p1" class="rail__item" data-rail="1"><span class="rail__num">01</span><span class="rail__label">Платформа проектов</span></a>
+  <a href="#p2" class="rail__item" data-rail="2"><span class="rail__num">02</span><span class="rail__label">Вместе в Сочи</span></a>
+  <a href="#p3" class="rail__item" data-rail="3"><span class="rail__num">03</span><span class="rail__label">Финансовая грамотность</span></a>
+  <a href="#p4" class="rail__item" data-rail="4"><span class="rail__num">04</span><span class="rail__label">Цифровые инженеры</span></a>
+  <a href="#p5" class="rail__item" data-rail="5"><span class="rail__num">05</span><span class="rail__label">Архитектура и дизайн</span></a>
+</nav>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="#top" aria-label="Портал проектов СочиГУ — на главную">
+      <img class="brand__mark" src="assets/img/emblem.png" alt="Сочинский государственный университет">
+      <span class="brand__txt">
+        <span class="brand__line1">Портал проектов</span>
+        <span class="brand__line2">СочиГУ</span>
+      </span>
+    </a>
+    <nav class="hdr__nav" aria-label="Основная навигация">
+      <a href="#projects">Проекты</a>
+      <a href="#about">О портале</a>
+      <a href="#resources">Ресурсы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hdr__cta" href="https://sochi.university/" target="_blank" rel="noopener">
+      <span>sochi.university</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg>
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__orbits" data-parallax="-0.12" aria-hidden="true">
+    <svg viewBox="0 0 900 900">
+      <g class="orbit orbit--1"><circle cx="450" cy="450" r="330"/></g>
+      <g class="orbit orbit--2"><circle cx="450" cy="450" r="250"/></g>
+      <g class="orbit orbit--3"><circle cx="450" cy="450" r="170"/></g>
+    </svg>
+  </div>
+
+  <div class="wrap hero__grid">
+    <div class="hero__left">
+      <p class="eyebrow reveal"><span class="eyebrow__dash"></span>Сочинский государственный университет</p>
+
+      <h1 class="hero__title" data-split="chars">
+        <span class="hero__title-line">Пять платформ.</span>
+        <span class="hero__title-line"><em>Одна</em> экосистема.</span>
+      </h1>
+
+      <p class="hero__lead reveal">Цифровые ресурсы университета, которые администрация развивает прямо сейчас: конкурсы студенческих проектов, летняя школа, олимпиады по финансовой грамотности, инженерные соревнования и смотры архитектуры.</p>
+
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary" href="#projects" data-magnetic>
+          <span>Смотреть проекты</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#about" data-magnetic><span>О портале</span></a>
+      </div>
+
+      <div class="hero__meta reveal">
+        <div class="hero__meta-item"><b>5</b><span>цифровых ресурсов</span></div>
+        <div class="hero__meta-sep"></div>
+        <div class="hero__meta-item"><b>2</b><span>уже открыты</span></div>
+        <div class="hero__meta-sep"></div>
+        <div class="hero__meta-item"><b>3</b><span>готовятся к запуску</span></div>
+      </div>
+    </div>
+
+    <div class="hero__right">
+      <div class="mascot" data-tilt>
+        <div class="mascot__halo"></div>
+        <div class="mascot__ring"></div>
+        <img class="mascot__img" src="assets/img/mascot.png" alt="Барсик — маскот портала проектов СочиГУ" width="500" height="500">
+        <div class="mascot__shadow"></div>
+        <div class="mascot__badge">
+          <span class="mascot__badge-dot"></span>
+          <span>Барсик<i>·</i>маскот портала</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__foot wrap">
+    <a class="scrollhint" href="#about">
+      <span class="scrollhint__line"><i></i></span>
+      <span class="scrollhint__txt">Листайте</span>
+    </a>
+    <div class="hero__counter"><span>01</span><i></i><span>05</span></div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Студенческие проекты</span><span class="marquee__dot">✦</span>
+    <span>Летняя школа</span><span class="marquee__dot">✦</span>
+    <span>Финансовая грамотность</span><span class="marquee__dot">✦</span>
+    <span>Цифровые инженеры</span><span class="marquee__dot">✦</span>
+    <span>Архитектура и дизайн</span><span class="marquee__dot">✦</span>
+    <span>Студенческие проекты</span><span class="marquee__dot">✦</span>
+    <span>Летняя школа</span><span class="marquee__dot">✦</span>
+    <span>Финансовая грамотность</span><span class="marquee__dot">✦</span>
+    <span>Цифровые инженеры</span><span class="marquee__dot">✦</span>
+    <span>Архитектура и дизайн</span><span class="marquee__dot">✦</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT / MANIFESTO ============ -->
+<section class="about" id="about">
+  <div class="about__sticky">
+    <div class="about__orbit" aria-hidden="true">
+      <svg viewBox="0 0 1000 1000">
+        <circle class="ao ao-1" cx="500" cy="500" r="420"/>
+        <circle class="ao ao-2" cx="500" cy="500" r="330"/>
+        <circle class="ao ao-3" cx="500" cy="500" r="240"/>
+        <circle class="ao ao-4" cx="500" cy="500" r="150"/>
+      </svg>
+    </div>
+    <div class="wrap about__inner">
+      <p class="eyebrow eyebrow--center reveal"><span class="eyebrow__dash"></span>О портале</p>
+      <p class="about__text" data-scrub-words>Университет сегодня — это не только аудитории. Это пять цифровых площадок, где студенты придумывают проекты, защищают их перед экспертами и получают первый настоящий опыт. Этот портал — точка входа в каждую из них.</p>
+      <div class="about__stats">
+        <div class="stat reveal"><span class="stat__num" data-count="5">0</span><span class="stat__lbl">цифровых платформ</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="2">0</span><span class="stat__lbl">уже в открытом доступе</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="3">0</span><span class="stat__lbl">готовятся к запуску</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="projects">
+
+  <!-- 01 -->
+  <article class="project" id="p1" data-accent="blue">
+    <div class="project__visual">
+      <div class="project__stage">
+        <div class="project__num" aria-hidden="true">01</div>
+        <div class="art-wrap">
+          <svg class="art art--1" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <radialGradient id="a1glow"><stop offset="0" stop-color="#2f6bff" stop-opacity=".5"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient>
+              <linearGradient id="a1ln" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfeaff" stop-opacity=".85"/><stop offset="1" stop-color="#2f6bff" stop-opacity=".12"/></linearGradient>
+              <linearGradient id="a1cd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9dc0ff" stop-opacity=".45"/><stop offset="1" stop-color="#1a52e0" stop-opacity=".05"/></linearGradient>
+            </defs>
+            <circle cx="300" cy="300" r="280" fill="url(#a1glow)"/>
+            <g class="spin" style="--dur:64s">
+              <circle cx="300" cy="300" r="230" fill="none" stroke="url(#a1ln)" stroke-width="1" stroke-dasharray="1 13"/>
+            </g>
+            <g class="spin spin--rev" style="--dur:44s">
+              <circle cx="300" cy="300" r="170" fill="none" stroke="url(#a1ln)" stroke-width="1" stroke-dasharray="40 22"/>
+            </g>
+            <g class="spin" style="--dur:30s">
+              <circle cx="300" cy="300" r="110" fill="none" stroke="url(#a1ln)" stroke-width="1" stroke-dasharray="2 7"/>
+            </g>
+            <g class="a1-cards">
+              <rect x="228" y="252" width="146" height="104" rx="14" fill="none" stroke="url(#a1cd)" stroke-width="1.4" transform="rotate(-9 300 300)"/>
+              <rect x="236" y="262" width="146" height="104" rx="14" fill="none" stroke="url(#a1cd)" stroke-width="1.4" transform="rotate(-3 300 300)"/>
+              <rect x="244" y="272" width="146" height="104" rx="14" fill="#0a1a3a" fill-opacity=".55" stroke="#9dc0ff" stroke-opacity=".55" stroke-width="1.4" transform="rotate(4 300 300)"/>
+              <line x1="262" y1="300" x2="352" y2="300" stroke="#cfe0ff" stroke-opacity=".5" stroke-width="1.4" transform="rotate(4 300 300)"/>
+              <line x1="262" y1="320" x2="320" y2="320" stroke="#cfe0ff" stroke-opacity=".25" stroke-width="1.4" transform="rotate(4 300 300)"/>
+            </g>
+            <g class="a1-nodes" fill="#cfe0ff">
+              <circle cx="300" cy="70" r="3.5"/><circle cx="469" cy="185" r="3"/><circle cx="469" cy="415" r="3.5"/>
+              <circle cx="300" cy="530" r="3"/><circle cx="131" cy="415" r="3.5"/><circle cx="131" cy="185" r="3"/>
+            </g>
+            <g stroke="#6fa8ff" stroke-opacity=".18" stroke-width="1">
+              <line x1="300" y1="300" x2="300" y2="70"/><line x1="300" y1="300" x2="469" y2="185"/>
+              <line x1="300" y1="300" x2="469" y2="415"/><line x1="300" y1="300" x2="300" y2="530"/>
+              <line x1="300" y1="300" x2="131" y2="415"/><line x1="300" y1="300" x2="131" y2="185"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="project__body">
+      <div class="project__eyebrow"><span class="project__idx">01</span><span class="project__line"></span><span>Конкурсы и проекты</span></div>
+      <h2 class="project__title">Платформа<br>студенческих проектов</h2>
+      <p class="project__lead">Единая среда, в которой конкурс студенческих проектов превращается в систему: две номинации, бесплатное участие и денежные гранты победителям.</p>
+      <p class="project__text">Бизнес-проекты на стадиях Pre-Seed и Seed и практико-ориентированные работы — образовательные и социально значимые. Внутри платформы «Банк работ» со всеми проектами конкурсов, система оценок и возможность подать заявку на студенческую разработку со стороны работодателя.</p>
+      <ul class="project__tags">
+        <li>Две номинации</li><li>Банк работ</li><li>Гранты</li><li>Экспертный совет</li>
+      </ul>
+      <a class="project__cta" href="https://project-sochigu.sochi.university/" target="_blank" rel="noopener" data-magnetic>
+        <span class="project__cta-txt">Перейти на платформу</span>
+        <span class="project__cta-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></span>
+      </a>
+    </div>
+  </article>
+
+  <!-- 02 -->
+  <article class="project project--rev" id="p2">
+    <div class="project__visual">
+      <div class="project__stage">
+        <div class="project__num" aria-hidden="true">02</div>
+        <div class="art-wrap">
+          <svg class="art art--2" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <radialGradient id="a2sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#cfe0ff" stop-opacity=".9"/><stop offset=".5" stop-color="#4c86ff" stop-opacity=".35"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient>
+              <linearGradient id="a2m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e4bb0" stop-opacity=".42"/><stop offset="1" stop-color="#071229" stop-opacity=".9"/></linearGradient>
+              <linearGradient id="a2m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12306e" stop-opacity=".7"/><stop offset="1" stop-color="#050c1c" stop-opacity="1"/></linearGradient>
+              <linearGradient id="a2m3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1f47" stop-opacity=".95"/><stop offset="1" stop-color="#03060f" stop-opacity="1"/></linearGradient>
+            </defs>
+            <circle cx="380" cy="230" r="180" fill="url(#a2sun)"/>
+            <circle cx="380" cy="230" r="52" fill="none" stroke="#dfeaff" stroke-opacity=".45" stroke-width="1"/>
+            <g class="a2-layer" data-depth="0.35">
+              <path d="M0 430 L110 330 L190 392 L300 268 L410 372 L500 300 L600 396 L600 600 L0 600 Z" fill="url(#a2m1)"/>
+              <path d="M0 430 L110 330 L190 392 L300 268 L410 372 L500 300 L600 396" fill="none" stroke="#9dc0ff" stroke-opacity=".35" stroke-width="1"/>
+            </g>
+            <g class="a2-layer" data-depth="0.6">
+              <path d="M0 486 L96 432 L196 494 L306 414 L418 486 L520 432 L600 478 L600 600 L0 600 Z" fill="url(#a2m2)"/>
+              <path d="M0 486 L96 432 L196 494 L306 414 L418 486 L520 432 L600 478" fill="none" stroke="#6fa8ff" stroke-opacity=".28" stroke-width="1"/>
+            </g>
+            <g class="a2-layer" data-depth="0.9">
+              <path d="M0 540 L140 512 L262 556 L382 520 L500 556 L600 538 L600 600 L0 600 Z" fill="url(#a2m3)"/>
+              <line x1="0" y1="540" x2="600" y2="540" stroke="#9dc0ff" stroke-opacity=".18" stroke-width="1" stroke-dasharray="3 6"/>
+            </g>
+            <g stroke="#9dc0ff" stroke-opacity=".12" stroke-width="1">
+              <line x1="60" y1="566" x2="150" y2="566"/><line x1="240" y1="578" x2="330" y2="578"/><line x1="420" y1="566" x2="520" y2="566"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="project__body">
+      <div class="project__eyebrow"><span class="project__idx">02</span><span class="project__line"></span><span>Летняя школа</span></div>
+      <h2 class="project__title">Вместе<br>в Сочи</h2>
+      <p class="project__lead">Летняя школа СочиГУ для студентов и молодых специалистов в туризме, гостеприимстве и инженерии — с защитой проектов в горах.</p>
+      <p class="project__text">От 36 до 72 часов практики под руководством тьютора, три трека на выбор и собственный инновационный проект. Ключевой модуль проходит на Красной Поляне — с погружением, экскурсиями и нетворкингом, а на выходе участник получает удостоверение ДПО государственного образца.</p>
+      <ul class="project__tags">
+        <li>36–72 часа</li><li>Три трека</li><li>Красная Поляна</li><li>Удостоверение ДПО</li>
+      </ul>
+      <a class="project__cta" href="https://shkola-vmeste-v-sochi.sochi.university/" target="_blank" rel="noopener" data-magnetic>
+        <span class="project__cta-txt">Перейти на сайт школы</span>
+        <span class="project__cta-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></span>
+      </a>
+    </div>
+  </article>
+
+  <!-- 03 -->
+  <article class="project" id="p3">
+    <div class="project__visual">
+      <div class="project__stage">
+        <div class="project__num" aria-hidden="true">03</div>
+        <div class="art-wrap">
+          <svg class="art art--3" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <linearGradient id="a3bar" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#1a52e0" stop-opacity=".15"/><stop offset="1" stop-color="#9dc0ff" stop-opacity=".85"/></linearGradient>
+              <linearGradient id="a3ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4c86ff" stop-opacity=".2"/><stop offset="1" stop-color="#dfeaff"/></linearGradient>
+            </defs>
+            <g stroke="#6fa8ff" stroke-opacity=".1" stroke-width="1">
+              <line x1="60" y1="140" x2="540" y2="140"/><line x1="60" y1="230" x2="540" y2="230"/>
+              <line x1="60" y1="320" x2="540" y2="320"/><line x1="60" y1="410" x2="540" y2="410"/>
+            </g>
+            <line x1="60" y1="500" x2="540" y2="500" stroke="#9dc0ff" stroke-opacity=".35" stroke-width="1"/>
+            <g class="a3-bars">
+              <rect x="80"  y="440" width="22" height="60"  rx="11" fill="url(#a3bar)"/>
+              <rect x="118" y="400" width="22" height="100" rx="11" fill="url(#a3bar)"/>
+              <rect x="156" y="418" width="22" height="82"  rx="11" fill="url(#a3bar)"/>
+              <rect x="194" y="352" width="22" height="148" rx="11" fill="url(#a3bar)"/>
+              <rect x="232" y="372" width="22" height="128" rx="11" fill="url(#a3bar)"/>
+              <rect x="270" y="300" width="22" height="200" rx="11" fill="url(#a3bar)"/>
+              <rect x="308" y="322" width="22" height="178" rx="11" fill="url(#a3bar)"/>
+              <rect x="346" y="246" width="22" height="254" rx="11" fill="url(#a3bar)"/>
+              <rect x="384" y="272" width="22" height="228" rx="11" fill="url(#a3bar)"/>
+              <rect x="422" y="200" width="22" height="300" rx="11" fill="url(#a3bar)"/>
+              <rect x="460" y="228" width="22" height="272" rx="11" fill="url(#a3bar)"/>
+              <rect x="498" y="156" width="22" height="344" rx="11" fill="url(#a3bar)"/>
+            </g>
+            <polyline class="a3-line" points="91,430 129,390 167,408 205,342 243,362 281,290 319,312 357,236 395,262 433,190 471,218 509,146" fill="none" stroke="url(#a3ln)" stroke-width="1.6" stroke-linejoin="round"/>
+            <g fill="#dfeaff">
+              <circle cx="91" cy="430" r="3"/><circle cx="205" cy="342" r="3"/><circle cx="281" cy="290" r="3"/>
+              <circle cx="357" cy="236" r="3"/><circle cx="433" cy="190" r="3"/><circle cx="509" cy="146" r="4"/>
+            </g>
+            <circle cx="509" cy="146" r="12" fill="none" stroke="#dfeaff" stroke-opacity=".45" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="project__body">
+      <div class="project__eyebrow"><span class="project__idx">03</span><span class="project__line"></span><span>Олимпиады и конкурсы</span></div>
+      <h2 class="project__title">Платформа<br>финансовой грамотности</h2>
+      <p class="project__lead">«Школа финансовой культуры» — всероссийские олимпиады и конкурсы по финансовой грамотности на одной платформе.</p>
+      <p class="project__text">Все этапы мероприятия собраны в одном месте: публикация условий и регистрация участников, загрузка работ, их оценка по критериям и объявление результатов. Четыре роли с личными кабинетами — участник, педагог, член жюри и администратор; каталог мероприятий с фильтрацией и нормативные документы в открытом доступе.</p>
+      <ul class="project__tags">
+        <li>Четыре роли</li><li>Личные кабинеты</li><li>Каталог мероприятий</li><li>Прозрачные статусы</li>
+      </ul>
+      <span class="project__cta project__cta--soon">
+        <span class="project__cta-txt">Запуск готовится</span>
+        <span class="project__cta-ic"><span class="pulse"></span></span>
+      </span>
+    </div>
+  </article>
+
+  <!-- 04 -->
+  <article class="project project--rev" id="p4">
+    <div class="project__visual">
+      <div class="project__stage">
+        <div class="project__num" aria-hidden="true">04</div>
+        <div class="art-wrap">
+          <svg class="art art--4" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <pattern id="a4grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" fill="none" stroke="#6fa8ff" stroke-opacity=".13" stroke-width="1"/>
+              </pattern>
+              <linearGradient id="a4ln" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2f6bff" stop-opacity=".25"/><stop offset="1" stop-color="#dfeaff" stop-opacity=".9"/></linearGradient>
+            </defs>
+            <rect x="60" y="60" width="480" height="480" fill="url(#a4grid)"/>
+            <rect x="60" y="60" width="480" height="480" fill="none" stroke="#6fa8ff" stroke-opacity=".18" stroke-width="1"/>
+            <g fill="none" stroke="url(#a4ln)" stroke-width="1.6" stroke-linecap="square" class="a4-path">
+              <path d="M60 500 H220 V380 H360 V260 H540"/>
+              <path d="M100 140 H260 V220 H420 V140 H540"/>
+              <path d="M180 540 V440 H300 V340 H460 V420"/>
+            </g>
+            <g fill="#0a1a3a" stroke="#9dc0ff" stroke-opacity=".8" stroke-width="1.4" class="a4-nodes">
+              <rect x="214" y="374" width="12" height="12"/><rect x="354" y="254" width="12" height="12"/>
+              <rect x="254" y="214" width="12" height="12"/><rect x="414" y="134" width="12" height="12"/>
+              <rect x="294" y="334" width="12" height="12"/><rect x="454" y="414" width="12" height="12"/>
+            </g>
+            <g class="a4-core" transform="translate(300 300)">
+              <polygon points="0,-64 55,-32 55,32 0,64 -55,32 -55,-32" fill="#071229" fill-opacity=".8" stroke="#cfe0ff" stroke-opacity=".7" stroke-width="1.4"/>
+              <polygon points="0,-36 31,-18 31,18 0,36 -31,18 -31,-18" fill="none" stroke="#6fa8ff" stroke-opacity=".5" stroke-width="1"/>
+              <circle cx="0" cy="0" r="4" fill="#dfeaff"/>
+            </g>
+            <g class="spin" style="--dur:80s" opacity=".5">
+              <circle cx="300" cy="300" r="270" fill="none" stroke="#6fa8ff" stroke-opacity=".2" stroke-width="1" stroke-dasharray="2 16"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="project__body">
+      <div class="project__eyebrow"><span class="project__idx">04</span><span class="project__line"></span><span>Инженерные конкурсы</span></div>
+      <h2 class="project__title">Цифровые<br>инженеры</h2>
+      <p class="project__lead">Полнофункциональная платформа инженерно-математического конкурса школьников — от регистрации до публичного рейтинга.</p>
+      <p class="project__text">Личный кабинет участника с анкетой из трёх шагов, загрузкой согласия законного представителя и решениями в PDF, DOC и изображениях. Администратор публикует задания, проверяет работы, автоматически считает баллы и определяет допущенных к очному этапу по порогу 50+, а данные выгружает в CSV и Excel.</p>
+      <ul class="project__tags">
+        <li>Школьники</li><li>Публичный рейтинг</li><li>Порог 50+</li><li>Админ-панель</li>
+      </ul>
+      <span class="project__cta project__cta--soon">
+        <span class="project__cta-txt">Запуск готовится</span>
+        <span class="project__cta-ic"><span class="pulse"></span></span>
+      </span>
+    </div>
+  </article>
+
+  <!-- 05 -->
+  <article class="project" id="p5">
+    <div class="project__visual">
+      <div class="project__stage">
+        <div class="project__num" aria-hidden="true">05</div>
+        <div class="art-wrap">
+          <svg class="art art--5" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <linearGradient id="a5f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6bff" stop-opacity=".35"/><stop offset="1" stop-color="#03060f" stop-opacity=".05"/></linearGradient>
+              <linearGradient id="a5s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfeaff" stop-opacity=".8"/><stop offset="1" stop-color="#2f6bff" stop-opacity=".2"/></linearGradient>
+            </defs>
+            <g stroke="#6fa8ff" stroke-opacity=".1" stroke-width="1">
+              <line x1="300" y1="60" x2="300" y2="540"/><line x1="60" y1="300" x2="540" y2="300"/>
+              <circle cx="300" cy="300" r="200" fill="none" stroke-dasharray="2 10"/>
+            </g>
+            <g class="a5-layers" fill="url(#a5f)" stroke="url(#a5s)" stroke-width="1.3">
+              <polygon points="300,225 450,300 300,375 150,300"/>
+              <polygon points="300,305 450,380 300,455 150,380"/>
+              <polygon points="300,385 450,460 300,535 150,460"/>
+            </g>
+            <g stroke="#9dc0ff" stroke-opacity=".45" stroke-width="1" class="a5-edges">
+              <line x1="150" y1="300" x2="150" y2="460"/><line x1="450" y1="300" x2="450" y2="460"/><line x1="300" y1="375" x2="300" y2="535"/>
+            </g>
+            <g stroke="#6fa8ff" stroke-opacity=".35" stroke-width="1">
+              <line x1="520" y1="300" x2="520" y2="460"/>
+              <line x1="514" y1="300" x2="526" y2="300"/><line x1="514" y1="460" x2="526" y2="460"/>
+            </g>
+            <text x="534" y="386" fill="#9dc0ff" fill-opacity=".55" font-family="monospace" font-size="11" letter-spacing="1">H</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="project__body">
+      <div class="project__eyebrow"><span class="project__idx">05</span><span class="project__line"></span><span>Архитектура и дизайн</span></div>
+      <h2 class="project__title">Конкурс проектов<br>по архитектуре</h2>
+      <p class="project__lead">Кафедра архитектуры, дизайна и экологии — многопрофильное направление, где проект начинается с идеи объекта и заканчивается территорией.</p>
+      <p class="project__text">Здесь занимаются дизайном любых объектов — от предмета и интерьера до общественных пространств, — проектированием жилых районов и городской среды, а также сложными уникальными сооружениями. Один из таких проектов — берегозащита Черноморского побережья: инженерная задача, в которой архитектура работает вместе с морем.</p>
+      <p class="project__text">Конкурс этого направления станет пятой площадкой портала: на ней появятся условия участия, состав жюри и галерея студенческих работ. Раздел готовится совместно с кафедрой.</p>
+      <ul class="project__tags">
+        <li>Дизайн объектов</li><li>Районы и среда</li><li>Уникальные сооружения</li><li>Берегозащита</li>
+      </ul>
+      <span class="project__cta project__cta--soon">
+        <span class="project__cta-txt">Запуск готовится</span>
+        <span class="project__cta-ic"><span class="pulse"></span></span>
+      </span>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============ RESOURCES INDEX ============ -->
+<section class="index" id="resources">
+  <div class="wrap">
+    <header class="index__head">
+      <p class="eyebrow reveal"><span class="eyebrow__dash"></span>Ресурсы</p>
+      <h2 class="index__title" data-split="lines">Все пять —<br><em>в одном месте</em></h2>
+      <p class="index__sub reveal">От конкурса студенческих работ до всероссийской олимпиады: выбирайте площадку и переходите.</p>
+    </header>
+
+    <ul class="index__list">
+      <li class="row reveal">
+        <a class="row__in" href="#p1">
+          <span class="row__num">01</span>
+          <span class="row__name">Платформа студенческих проектов</span>
+          <span class="row__meta">Конкурсы и проекты</span>
+          <span class="row__state row__state--live">Открыт</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="row reveal">
+        <a class="row__in" href="#p2">
+          <span class="row__num">02</span>
+          <span class="row__name">Летняя школа «Вместе в Сочи»</span>
+          <span class="row__meta">Летняя школа</span>
+          <span class="row__state row__state--live">Открыт</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="row reveal">
+        <a class="row__in" href="#p3">
+          <span class="row__num">03</span>
+          <span class="row__name">Платформа финансовой грамотности</span>
+          <span class="row__meta">Олимпиады и конкурсы</span>
+          <span class="row__state">Готовится</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="row reveal">
+        <a class="row__in" href="#p4">
+          <span class="row__num">04</span>
+          <span class="row__name">Цифровые инженеры</span>
+          <span class="row__meta">Инженерные конкурсы</span>
+          <span class="row__state">Готовится</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="row reveal">
+        <a class="row__in" href="#p5">
+          <span class="row__num">05</span>
+          <span class="row__name">Конкурс проектов по архитектуре и дизайну</span>
+          <span class="row__meta">Архитектура и дизайн</span>
+          <span class="row__state">Готовится</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr" id="contacts">
+  <div class="wrap ftr__in">
+    <div class="ftr__brand">
+      <a class="brand brand--ftr" href="https://sochi.university/" target="_blank" rel="noopener">
+        <img class="brand__mark" src="assets/img/emblem.png" alt="Сочинский государственный университет">
+        <span class="brand__txt">
+          <span class="brand__line1">Сочинский государственный</span>
+          <span class="brand__line2">университет</span>
+        </span>
+      </a>
+      <p class="ftr__addr">ФГБОУ ВО «Сочинский государственный университет»<br>354003, Краснодарский край, г. Сочи,<br>ул. Пластунская, д. 94</p>
+      <div class="ftr__contacts">
+        <a href="tel:+78622648503">+7 (862) 264-85-03</a>
+        <a href="mailto:university@sutr.ru">university@sutr.ru</a>
+      </div>
+    </div>
+
+    <div class="ftr__cols">
+      <div class="ftr__col">
+        <h3>Проекты</h3>
+        <a href="https://project-sochigu.sochi.university/" target="_blank" rel="noopener">Платформа студенческих проектов</a>
+        <a href="https://shkola-vmeste-v-sochi.sochi.university/" target="_blank" rel="noopener">Летняя школа «Вместе в Сочи»</a>
+        <a href="#p3">Финансовая грамотность <i>скоро</i></a>
+        <a href="#p4">Цифровые инженеры <i>скоро</i></a>
+        <a href="#p5">Архитектура и дизайн <i>скоро</i></a>
+      </div>
+      <div class="ftr__col">
+        <h3>Университет</h3>
+        <a href="https://sochi.university/about/" target="_blank" rel="noopener">Об университете</a>
+        <a href="https://sochi.university/admission/" target="_blank" rel="noopener">Поступление</a>
+        <a href="https://sochi.university/science/" target="_blank" rel="noopener">Наука</a>
+        <a href="https://sochi.university/career/" target="_blank" rel="noopener">Карьера</a>
+        <a href="https://sochi.university/contact/" target="_blank" rel="noopener">Контакты</a>
+      </div>
+      <div class="ftr__col">
+        <h3>Соцсети</h3>
+        <a href="https://t.me/sochi_university" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://vk.ru/sochiuniversity" target="_blank" rel="noopener">ВКонтакте</a>
+        <a href="https://ok.ru/profile/578044851929" target="_blank" rel="noopener">Одноклассники</a>
+        <a href="https://rutube.ru/channel/25548246/" target="_blank" rel="noopener">Rutube</a>
+        <a href="https://dzen.ru/sochistateuniversity" target="_blank" rel="noopener">Дзен</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr__band">
+    <div class="ftr__wm-clip"><div class="ftr__wordmark" aria-hidden="true">Портал проектов</div></div>
+    <img class="ftr__mascot" src="assets/img/mascot.png" alt="" aria-hidden="true" loading="lazy">
+  </div>
+
+  <div class="wrap ftr__bottom">
+    <p>© <span id="year">2026</span> Сочинский государственный университет</p>
+    <p class="ftr__note">Портал проектов · <a href="mailto:forsite@sutr.ru">forsite@sutr.ru</a></p>
+    <a class="ftr__up" href="#top">Наверх <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+  </div>
+</footer>
+
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

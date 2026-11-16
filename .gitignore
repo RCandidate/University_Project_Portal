@@ -1,0 +1,14 @@
+# Backups — never commit these
+*.bak
+*.bak.*
+
+# Local secrets / data
+donors.txt
+.env
+*.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
