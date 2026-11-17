@@ -24,6 +24,7 @@
     document.head.appendChild(st);
   }
   if (staticMode || isShot) doc.classList.add('static-mode');
+  if (params.has('lowpower')) { doc.classList.add('low-power'); window.__lowPower = true; }
 
   /* ---------------------------------------------------------
      1. LOADER
@@ -215,6 +216,12 @@
     }
   });
 
+  // pause looping CSS animations in sections that are off screen
+  var visObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { e.target.classList.toggle('is-visible', e.isIntersecting); });
+  }, { rootMargin: '12% 0px' });
+  $$('.hero, .about, .project, .ftr').forEach(function (el) { visObserver.observe(el); });
+
   $$('.index__title').forEach(function (el) {
     var o = new IntersectionObserver(function (ents) {
       ents.forEach(function (en) {
@@ -252,34 +259,13 @@
   });
 
   /* ---------------------------------------------------------
-     6. CURSOR
+     6. POINTER (native cursor is kept — no custom cursor)
      --------------------------------------------------------- */
-  var cursor = $('.cursor');
-  var dot = $('.cursor__dot');
-  var ring = $('.cursor__ring');
   var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-  var dx = mx, dy = my, rx = mx, ry = my;
-
-  if (cursor && !isTouch) {
-    doc.classList.add('has-cursor');
+  if (!isTouch) {
     window.addEventListener('mousemove', function (e) {
       mx = e.clientX; my = e.clientY;
-      if (dot) dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0)';
     }, { passive: true });
-    window.addEventListener('mousedown', function () { cursor.classList.add('is-down'); });
-    window.addEventListener('mouseup', function () { cursor.classList.remove('is-down'); });
-    document.addEventListener('mouseover', function (e) {
-      var t = e.target;
-      if (t.closest && t.closest('a, button, [data-magnetic], .row__in, .project__cta')) {
-        cursor.classList.add('is-hover');
-      }
-    });
-    document.addEventListener('mouseout', function (e) {
-      var t = e.target;
-      if (t.closest && t.closest('a, button, [data-magnetic], .row__in, .project__cta')) {
-        cursor.classList.remove('is-hover');
-      }
-    });
   }
 
   /* ---------------------------------------------------------
@@ -321,30 +307,27 @@
       '  return mix(mix(dot(hash2(i+vec2(0.,0.)),f-vec2(0.,0.)),dot(hash2(i+vec2(1.,0.)),f-vec2(1.,0.)),u.x),',
       '             mix(dot(hash2(i+vec2(0.,1.)),f-vec2(0.,1.)),dot(hash2(i+vec2(1.,1.)),f-vec2(1.,1.)),u.x),u.y);',
       '}',
-      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.03;a*=.5;}return v;}',
+      'float fbm(vec2 p){float v=0.,a=.55;for(int i=0;i<3;i++){v+=a*noise(p);p*=2.05;a*=.5;}return v;}',
       'void main(){',
-      '  vec2 uv=gl_FragCoord.xy/u_res.xy;',
       '  vec2 p=(gl_FragCoord.xy-.5*u_res.xy)/max(u_res.y,1.);',
-      '  float t=u_t*.035;',
-      '  vec2 q=vec2(fbm(p*1.15+vec2(0.,t)),fbm(p*1.15+vec2(5.2,-t)));',
-      '  vec2 r=vec2(fbm(p*1.55+q*1.35+vec2(1.7,9.2)+t*.55),fbm(p*1.55+q*1.35+vec2(8.3,2.8)-t*.45));',
-      '  float f=fbm(p*1.45+r*1.6);',
-      '  float n=smoothstep(-.25,.85,f);',
-      '  vec3 deep=vec3(.010,.020,.048);',
-      '  vec3 mid=vec3(.028,.072,.190);',
-      '  vec3 hi=vec3(.105,.260,.760);',
-      '  vec3 ice=vec3(.640,.780,.980);',
-      '  vec3 col=mix(deep,mid,smoothstep(.05,.75,n));',
-      '  col=mix(col,hi,smoothstep(.50,.94,n)*.58);',
-      '  col+=ice*pow(smoothstep(.76,1.,n),3.2)*.30;',
-      '  float d=length(p-vec2(.34+(u_m.x-.5)*.30,.06+(u_m.y-.5)*.24));',
-      '  col+=vec3(.07,.17,.46)*exp(-d*2.1)*.42;',
-      '  float d2=length(p-vec2(-.55,-.30));',
-      '  col+=vec3(.05,.10,.28)*exp(-d2*1.5)*.32;',
-      '  float vig=smoothstep(1.42,.16,length(p*vec2(.78,1.)));',
-      '  col*=.50+.50*vig;',
-      '  col*=1.0+u_s*.10;',
-      '  col+=(fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453)-.5)*.008;',
+      '  float t=u_t*.03;',
+      '  vec2 q=vec2(fbm(p*1.05+vec2(0.,t)),fbm(p*1.05+vec2(5.2,-t)));',
+      '  float f=fbm(p*1.30+q*1.25);',
+      '  float n=smoothstep(-.28,.82,f);',
+      '  vec3 deep=vec3(.026,.048,.100);',
+      '  vec3 mid=vec3(.062,.135,.315);',
+      '  vec3 hi=vec3(.150,.360,.900);',
+      '  vec3 ice=vec3(.780,.870,1.0);',
+      '  vec3 col=mix(deep,mid,smoothstep(.02,.80,n));',
+      '  col=mix(col,hi,smoothstep(.46,.92,n)*.62);',
+      '  col+=ice*pow(smoothstep(.72,1.,n),3.)*.24;',
+      '  float d=length(p-vec2(.30+(u_m.x-.5)*.28,.04+(u_m.y-.5)*.22));',
+      '  col+=vec3(.10,.22,.58)*exp(-d*1.7)*.55;',
+      '  float d2=length(p-vec2(-.55,-.28));',
+      '  col+=vec3(.06,.13,.36)*exp(-d2*1.25)*.40;',
+      '  float vig=smoothstep(1.48,.10,length(p*vec2(.80,1.)));',
+      '  col*=mix(.32,1.16,vig);',
+      '  col*=1.0+u_s*.08;',
       '  gl_FragColor=vec4(col,1.);',
       '}'
     ].join('\n');
@@ -383,11 +366,21 @@
     var uM = gl.getUniformLocation(prog, 'u_m');
     var uS = gl.getUniformLocation(prog, 'u_s');
 
-    var dpr = Math.min(window.devicePixelRatio || 1, isTouch ? 1.2 : 1.6);
-    var scale = isTouch ? 0.75 : 1;
+    // the aurora is soft and slow: render it at half resolution and upscale.
+    // this cuts the shaded pixel count ~4x with no visible difference.
+    var RES = isTouch ? 0.40 : 0.50;
+    var MAX_W = 720, MAX_H = 450;
 
     var mouse = { x: 0.5, y: 0.5 }, ms = { x: 0.5, y: 0.5 };
     var scrollN = 0, lastTime = 0, paused = false, lastDraw = 0;
+    var dts = [], low = false, prevTime = 0, winStart = 0, slowWin = 0;
+
+    function goLowPower() {
+      low = true;
+      window.__lowPower = true;
+      doc.classList.add('low-power');
+      canvas.style.display = 'none';
+    }
 
     function draw() {
       gl.uniform1f(uT, reduced ? 0 : lastTime * 0.001);
@@ -397,9 +390,9 @@
     }
 
     function resize() {
-      var w = Math.floor(canvas.clientWidth * dpr * scale);
-      var h = Math.floor(canvas.clientHeight * dpr * scale);
-      if (!w || !h) return;
+      var w = Math.min(Math.round(canvas.clientWidth * RES), MAX_W);
+      var h = Math.min(Math.round(canvas.clientHeight * RES), MAX_H);
+      if (w < 2 || h < 2) return;
       canvas.width = w;
       canvas.height = h;
       gl.viewport(0, 0, w, h);
@@ -422,11 +415,34 @@
     window.__auroraTick = function (time, scrollRatio) {
       if (paused) return;
       lastTime = time;
-      if (staticMode) {
-        // screenshot mode: a few frames per second is plenty and keeps it cheap
-        if (time - lastDraw < 350) return;
-        lastDraw = time;
+
+      // Rolling frame-time window. If the device clearly cannot hold ~40fps we
+      // switch to the static CSS background — once, and never back (avoids flicker).
+      // Sampling starts after the intro so the loader frames do not skew it.
+      if (!low && time > 2000) {
+        if (!winStart) winStart = time;
+        if (prevTime) dts.push(time - prevTime);
+        if (time - winStart > 1100 && dts.length >= 8) {
+          var sorted = dts.slice().sort(function (a, b) { return a - b; });
+          var median = sorted[sorted.length >> 1];
+          window.__auroraDbg = { n: dts.length, median: Math.round(median), low: low, t: Math.round(time) };
+          if (median > 26) {
+            slowWin++;
+            // two slow windows in a row, so a single GC hitch does not degrade the page
+            if (slowWin >= 2) { goLowPower(); return; }
+          } else {
+            slowWin = 0;
+          }
+          dts = [];
+          winStart = time;
+        }
       }
+      prevTime = time;
+
+      // 30fps is plenty for a slow drifting gradient
+      if (time - lastDraw < (staticMode ? 350 : 33)) return;
+      lastDraw = time;
+
       ms.x = lerp(ms.x, mouse.x, 0.05);
       ms.y = lerp(ms.y, mouse.y, 0.05);
       scrollN = lerp(scrollN, scrollRatio, 0.06);
@@ -546,16 +562,9 @@
       }
     }
 
-    // cursor ring
-    if (ring && !isTouch) {
-      rx = lerp(rx, mx, 0.16);
-      ry = lerp(ry, my, 0.16);
-      ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
-    }
-
     // pointer parallax on artwork (uses the standalone `translate` property,
     // so it composes with the entrance `transform` instead of overriding it)
-    if (!isTouch) {
+    if (!isTouch && !window.__lowPower) {
       tiltX = lerp(tiltX, (mx / window.innerWidth - 0.5) * -18, 0.06);
       tiltY = lerp(tiltY, (my / window.innerHeight - 0.5) * -14, 0.06);
       for (var k = 0; k < artWraps.length; k++) {
